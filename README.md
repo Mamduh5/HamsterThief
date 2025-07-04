@@ -1,49 +1,27 @@
-# OvercodePort
-A full-stack project using next and node showcasing my skills.
+# Hi there, I'm Mamduh5! 👋
 
-## Database is auto schema
-Table will create automatically when run
+I'm a passionate **programmer** diving deep into the world of web development and game creation.
 
-## Project Setup 
+## 🚀 About Me
+- 🌱 Currently exploring Node.js and MySQL, building creative solutions and apps.
+- 🎮 Working on my first web app game: [HamsterThief](https://github.com/Mamduh5/HamsterThief) — a fun project where I'm learning tons about building games from scratch.
+- 🧠 Fascinated by psychology, always eager to learn how the mind works.
+- 🕹️ Gamer at heart, always up for a new challenge.
 
-```sh
-npm i
-```
+## 🛠️ My Top Skills
+- **Node.js**
+- **MySQL**
 
-## Run backend localhost
+## 🌟 Featured Project
+### [HamsterThief](https://github.com/Mamduh5/HamsterThief)
+> My very first web app game in the making! Join me as I learn and build something fun and exciting.
 
-```sh
-npm run localhost
-```
+## 😺 Fun Fact
+I like cats, but can't raise one (yet!).
 
-## Docker setup
+## 📫 Connect with Me
+- [GitHub: Mamduh5](https://github.com/Mamduh5)
 
-### Build all image
+---
 
-```sh
-docker-compose up --build
-```
-
-### Run specific image
-
-```sh
-docker-compose build backend
-```
-
-### Stop and remove containers include volumes
-
-```sh
-docker-compose down -v
-```
-
-### Start containers in detached mode
-
-```sh
-docker-compose up -d
-```
-
-### Clean Rebuild
-
-```sh
-docker-compose down -v --remove-orphans
-```
+Thanks for stopping by! 🚀
