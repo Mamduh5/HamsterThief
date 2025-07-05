@@ -1,0 +1,38 @@
+[
+  {
+    "table": "users",
+    "schema": {
+      "user_id": {
+        "type": "increments",
+        "primary": true
+      },
+      "first_name": {
+        "type": "string",
+        "length": 50,
+        "notNullable": false
+      },
+      "last_name": {
+        "type": "string",
+        "length": 50,
+        "notNullable": false
+      },
+      "email": {
+        "type": "string",
+        "length": 255,
+        "unique": true,
+        "notNullable": true
+      },
+      "password_hash": {
+        "type": "string",
+        "length": 255,
+        "notNullable": true
+      },
+      "refresh_token": {
+        "type": "string",
+        "length": 128,
+        "notNullable": true
+      }
+    },
+    "data": []
+  }
+]

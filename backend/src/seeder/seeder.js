@@ -13,6 +13,10 @@ const admin_2fa_request = require('./admin_2fa_request.json')
 const auth_login_logs = require('./auth_login_logs.json') 
 const auth_admin_change_logs = require('./auth_admin_change_logs.json')
 const admin_data_tracking = require('./admin_data_tracking.json')
+const users = require('./users.json')
+
+
+// admin part
 admins[0].schema = {
     ...admins[0].schema,
     ...mainseeder,
@@ -42,15 +46,12 @@ admin_data_tracking[0].schema = {
     ...mainseeder,
 };
 
-// auth_permission_change_logs[0].schema = {
-//     ...auth_permission_change_logs[0].schema,
-//     ...mainseeder,
-// }
 
-// merchants_data_tracking[0].schema = {
-//     ...merchants_data_tracking[0].schema,
-//     ...mainseeder,
-// }
+//user part
+users[0].schema = {
+    ...users[0].schema,
+    ...mainseeder,
+};
 const responses = [
     authentication_responses,
     data_responses,
@@ -79,5 +80,7 @@ module.exports = {
     auth_login_logs,
     auth_admin_change_logs,
     admin_data_tracking,
-    // auth_permission_change_logs,
+
+    users
+
 }

@@ -7,6 +7,7 @@ const {
   AUTH_LOGIN_LOGS,
   AUTH_ADMIN_CHANGE_LOGS,
   ADMIN_DATA_TRACKING,
+  USERS
 } = require('../enum/index.js')
 const {
   admins,
@@ -16,6 +17,7 @@ const {
   auth_login_logs,
   auth_admin_change_logs,
   admin_data_tracking,
+  users
 } = seeder
 const { knex } = require('./knex.js')
 
@@ -28,7 +30,7 @@ const MasterDataCreateKnexSql = async () => {
   await initializeMasterData(ADMIN_2FA_REQUEST, admin_2fa_request[0])
   await initializeMasterData(AUTH_LOGIN_LOGS, auth_login_logs[0])
   await initializeMasterData(AUTH_ADMIN_CHANGE_LOGS, auth_admin_change_logs[0])
-  // await initializeMasterData(AUTH_PERMISSION_CHANGE_LOGS, auth_permission_change_logs[0])
+  await initializeMasterData(USERS, users[0])
 
   await createModels(admins[0], adminsData, ADMINS, 'email')
   await createModels(password_policy[0], password_policyData, PASSWORD_POLICY, 'code')
@@ -119,7 +121,7 @@ const createTable = async (TABLE, schema) => {
     let uniqueLink = []
     Object.entries(schema).forEach(([columnName, columnProps]) => {
       addColumn(tableBuilder, columnName, columnProps)
-      if (columnProps.unique_link === true) uniqueLink.push(columnName)
+      if (columnProps.uniqueLink === true) uniqueLink.push(columnName)
     })
     if (uniqueLink.length > 1) tableBuilder.unique(uniqueLink)
   })

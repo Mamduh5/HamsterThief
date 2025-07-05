@@ -7,7 +7,7 @@ const ADMIN_2FA_REQUEST = 'admin_2fa_request'
 const AUTH_LOGIN_LOGS = 'auth_login_logs'
 const AUTH_ADMIN_CHANGE_LOGS = 'auth_admin_change_logs'
 const ADMIN_DATA_TRACKING = 'admin_data_tracking'
-// const AUTH_PERMISSION_CHANGE_LOGS = 'auth_permission_change_logs'
+const USERS = 'users'
 
 module.exports = {
   IMAGE,
@@ -19,4 +19,5 @@ module.exports = {
   AUTH_LOGIN_LOGS,
   AUTH_ADMIN_CHANGE_LOGS,
   ADMIN_DATA_TRACKING,
+  USERS
 }

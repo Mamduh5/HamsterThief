@@ -43,8 +43,6 @@ const xPlatformValidate = () => async (ctx, next) => {
   }
 }
 
-
-
 const loginValidate = () => async (ctx, next) => {
   try {
     const { error, value } = ValidateSchema.loginValidateSchema.validate(ctx.request.body, { abortEarly: false });
