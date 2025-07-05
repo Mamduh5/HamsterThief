@@ -1,7 +1,7 @@
 {
   "server": {
     "host": "develop",
-    "port": 7001
+    "port": 5003
   },
   "bodyParser": {
     "multipart": true,
@@ -63,24 +63,16 @@
   },
   "redis": {
     "url": "",
-    "host": "210.246.202.16",
-    "port": 6380,
-    "password": "CYm8kz22KmAmwE"
-  },
-  "database": {
-    "host": "127.0.0.1",
-    "port": "3306",
-    "username": "root",
-    "password": "",
-    "database": "test",
-    "queryConnect": ""
+    "host": "redis",
+    "port": 6383,
+    "password": ""
   },
   "databaseknexsql": {
-    "host": "210.246.202.16",
-    "port": "3306",
-    "username": "overcode-dev",
-    "password": "AKq4RXjvYYk9bK",
-    "database": "overcode_dev"
+    "host": "mysql",
+    "port": "3320",
+    "username": "root",
+    "password": "",
+    "database": "hamsterThief"
   },
   "google": {
     "projectId": "",

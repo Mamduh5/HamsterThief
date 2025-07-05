@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: api-overcodeport
     expose:
-      - "7001"
+      - "5003"
     networks:
       - overcode_net
       - shared_messaging_network
