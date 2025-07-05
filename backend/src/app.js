@@ -147,7 +147,6 @@ app.use(async ctx => {
 async function startApplication() {
     try {
 
-
         // 3. Start the HTTP server
         if (process.env.NODE_ENV === 'test_localhostforuserswitchcase' || process.env.NODE_ENV === 'test_localhost') {
             module.exports = app;
