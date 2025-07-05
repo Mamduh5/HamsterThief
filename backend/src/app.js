@@ -122,7 +122,7 @@ app.use(async (ctx, next) => {
 // first page
 router.get(prefix + '/', ctx => {
   ctx.status = 200
-  ctx.body = responseFormat({ params: 'base4-koajs-knex-sql-setup' }, 'GET_DATA_SUCCESS', 'EN')
+  ctx.body = responseFormat({ params: 'Welcome-to-hamster-den' }, 'GET_DATA_SUCCESS', 'EN')
 })
 
 router.use(prefix + '/token', Token.routes())
