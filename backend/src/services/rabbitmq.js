@@ -6,8 +6,6 @@ const amqp = require('amqplib'); // Or your preferred RabbitMQ client library
 
 const { host, port, username, password } = appConfig.RabbitMQ || {}
 
-console.log(`RabbitMQ Config: host=${host}, port=${port}, username=${username}, password=${password}`);
-
 let connection = null;
 let channel = null;
 

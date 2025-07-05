@@ -60,7 +60,7 @@ const UserLogoutService = () => async (ctx, next) => {
   return next();
 };
 
-const currentUserInfo = () => async (ctx, next) => {
+const currentAdminInfo = () => async (ctx, next) => {
   const columnMap = {
     STATUS: `status`
   };
@@ -193,7 +193,7 @@ const UserTokenAuthen = () =>
       ctx.result = AllowValue;
       ctx.email = AllowValue[0].email;
 
-      ctx.admin_id = AllowValue[0].user_id;
+      ctx.user_id = AllowValue[0].user_id;
       ctx.result.level = AllowValue[0].level;
       ctx.user = AllowValue;
       return next();
@@ -247,7 +247,7 @@ const changePassword = () => async (ctx, next) => {
 
 module.exports = {
   UserTokenAuthen,
-  currentUserInfo,
+  currentAdminInfo,
   changeUserInfo,
   UserLoginService,
   changePassword,

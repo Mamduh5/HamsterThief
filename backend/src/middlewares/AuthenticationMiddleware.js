@@ -132,7 +132,7 @@ const isEmailVerify = () => async (ctx, next) => {
   await next();
 };
 
-const currentUserInfo = () => async (ctx, next) => {
+const currentAdminInfo = () => async (ctx, next) => {
   const columnMap = {
     STATUS: `status`
   };
@@ -544,7 +544,7 @@ const verifyEmail = () => async (ctx, next) => {
 module.exports = {
   basicAuthentication,
   tokenAuthentication,
-  currentUserInfo,
+  currentAdminInfo,
   changeUserInfo,
   preLoginService,
   loginService,

@@ -8,7 +8,7 @@ const {
 const {
   basicAuthentication,
   tokenAuthentication,
-  currentUserInfo,
+  currentAdminInfo,
   changeUserInfo,
   changePassword,
   requestPasswordReset,
@@ -52,7 +52,7 @@ Router.get('/admin/info',
   basicAuthentication(),
   xPlatformValidate(),
   tokenAuthentication(),
-  currentUserInfo(),
+  currentAdminInfo(),
   async ctx => {
     ctx.status = 200
     ctx.body = responseFormat({ ...ctx.result }, 'GET_DATA_SUCCESS', ctx.language)

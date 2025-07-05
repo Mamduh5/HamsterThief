@@ -35,6 +35,8 @@ const Policy = require('./routes/Policy.js')
 const Dashboard = require('./routes/Dashboard.js')
 const Admin2FA = require('./routes/Admin2FA.js')
 const UserToken = require('./routes/UserToken.js')
+const Users = require('./routes/Users.js')
+
 
 
 // Schedules
@@ -131,7 +133,11 @@ router.use(prefix + '/logs', AdminsLogs.routes())
 router.use(prefix + '/policy', Policy.routes())
 router.use(prefix + '/dashboard', Dashboard.routes())
 router.use(prefix + '/twofa', Admin2FA.routes())
+
+// ---------------------------user route---------------------------------------------------------------
 router.use(prefix + '/user/token', UserToken.routes())
+router.use(prefix + '/users', Users.routes())
+
 
 const portPrefix = process.env.PORT || serverEnv.port
 const portUsed = +portPrefix + parseInt(process.env.NODE_APP_INSTANCE || 0, 10)
