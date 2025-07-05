@@ -146,12 +146,7 @@ app.use(async ctx => {
 
 async function startApplication() {
     try {
-        // 1. Connect to RabbitMQ
-        await rabbitMQService.connectRabbitMQ(); // <--- Call connectRabbitMQ here!
 
-        // 2. Start any RabbitMQ consumers if this app needs to receive messages
-        // Start all your consumers dynamically
-        await loadAndStartConsumers(); // <--- Call the loader here
 
         // 3. Start the HTTP server
         if (process.env.NODE_ENV === 'test_localhostforuserswitchcase' || process.env.NODE_ENV === 'test_localhost') {

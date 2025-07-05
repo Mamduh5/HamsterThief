@@ -63,13 +63,13 @@
   },
   "redis": {
     "url": "",
-    "host": "redis",
-    "port": 6379,
+    "host": "localhost",
+    "port": 6383,
     "password": ""
   },
   "databaseknexsql": {
-    "host": "mysql",
-    "port": "3306",
+    "host": "localhost",
+    "port": "3320",
     "username": "root",
     "password": "",
     "database": "hamsterThief"

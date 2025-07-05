@@ -64,12 +64,12 @@
   "redis": {
     "url": "",
     "host": "redis",
-    "port": 6383,
+    "port": 6379,
     "password": ""
   },
   "databaseknexsql": {
     "host": "mysql",
-    "port": "3320",
+    "port": "3306",
     "username": "root",
     "password": "",
     "database": "hamsterThief"
