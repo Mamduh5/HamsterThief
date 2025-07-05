@@ -49,7 +49,7 @@ const InsertAdminsValidate = () => async (ctx, next) => {
     }
     const findUser = await knex(ADMINS).select('admin_id').where({ Email }).first();
     if (findUser) {
-      ctx.body = responseFormat({}, 'ALREADY_EMAIL', ctx.language);
+      ctx.body = responseFormat({}, 'DUPLICATE_EMAIL', ctx.language);
       return;
     }
     await next();

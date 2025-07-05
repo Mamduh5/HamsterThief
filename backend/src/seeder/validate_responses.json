@@ -310,90 +310,6 @@
       ]
     },
     {
-      "name": "REQUIRED_ONLY_ARRAY",
-      "code": "4022",
-      "description": [
-        {
-          "language": "TH",
-          "description": "ต้องเป็น Array เท่านั้น"
-        },
-        {
-          "language": "EN",
-          "description": "Only array is allowed."
-        }
-      ]
-    },
-    {
-      "name": "INVALID_TIME_LOOKUP",
-      "code": "4023",
-      "description": [
-        {
-          "language": "TH",
-          "description": "เวลาไม่ถูกต้อง"
-        },
-        {
-          "language": "EN",
-          "description": "Invalid time."
-        }
-      ]
-    },
-    {
-      "name": "CHARACTER_FIXED_LENGTH",
-      "code": "4024",
-      "description": [
-        {
-          "language": "TH",
-          "description": "จำนวนตัวอักษรต้องไม่เกินที่กำหนด"
-        },
-        {
-          "language": "EN",
-          "description": "Invalid characters."
-        }
-      ]
-    },
-    {
-      "name": "CONFIRM_PIN_NOT_MATCH",
-      "code": "4025",
-      "description": [
-        {
-          "language": "TH",
-          "description": "พิน และยืนยันพิน ไม่ตรงกัน"
-        },
-        {
-          "language": "EN",
-          "description": "PIN does not match."
-        }
-      ]
-    },
-    {
-      "name": "INVALID_CURRENT_PIN",
-      "code": "4026",
-      "description": [
-        {
-          "language": "TH",
-          "description": "รหัสผ่านพินเดิมไม่ถูกต้อง"
-        },
-        {
-          "language": "EN",
-          "description": "Invalid current pin."
-        }
-      ]
-    },
-    {
-      "name": "REQUIRED_ONLY_OBJECT",
-      "code": "4027",
-      "description": [
-        {
-          "language": "TH",
-          "description": "ต้องเป็น Object เท่านั้น"
-        },
-        {
-          "language": "EN",
-          "description": "Only object is allowed."
-        }
-      ]
-    },
-    {
       "name": "ONLY_URL_VALUES",
       "code": "5109",
       "description": [
@@ -493,7 +409,7 @@
     },
     {
       "name": "MISSING_ADMIN_KEY_VALUES",
-      "code": "4028",
+      "code": "4022",
       "description": [
         {
           "language": "TH",
@@ -507,7 +423,7 @@
     },
     {
       "name": "SALT_KEY_VALUES",
-      "code": "4029",
+      "code": "4023",
       "description": [
         {
           "language": "TH",
@@ -521,7 +437,7 @@
     },
     {
       "name": "AVOID_CURRENT_PASSWORD_SAME_NEWPASSWORD",
-      "code": "4030",
+      "code": "4024",
       "description": [
         {
           "language": "TH",
@@ -535,7 +451,7 @@
     },
     {
       "name": "PLEASE_INCREASE_SECURITY_PASSWORD",
-      "code": "4031",
+      "code": "4025",
       "description": [
         {
           "language": "TH",
@@ -549,7 +465,7 @@
     },
     {
       "name": "INVALID_CITIZEN_FORMAT",
-      "code": "4032",
+      "code": "4026",
       "description": [
         {
           "language": "TH",
@@ -563,7 +479,7 @@
     },
     {
       "name": "DUPICATE_VALUE",
-      "code": "4033",
+      "code": "4027",
       "description": [
         {
           "language": "TH",
@@ -577,7 +493,7 @@
     },
     {
       "name": "REQUIRED_ONLY_STRING_TH",
-      "code": "4034",
+      "code": "4028",
       "description": [
         {
           "language": "TH",
@@ -591,7 +507,7 @@
     },
     {
       "name": "REQUIRED_ONLY_STRING_EN",
-      "code": "4034",
+      "code": "4029",
       "description": [
         {
           "language": "TH",
@@ -605,7 +521,7 @@
     },
     {
       "name": "ALREADY_WAITING_VERIFY",
-      "code": "4034",
+      "code": "4030",
       "description": [
         {
           "language": "TH",
@@ -619,7 +535,7 @@
     },
     {
       "name": "ALREADY_SUCCESS_VERIFY",
-      "code": "4035",
+      "code": "4031",
       "description": [
         {
           "language": "TH",
@@ -632,8 +548,8 @@
       ]
     },
     {
-      "name": "ALREADY_EMAIL",
-      "code": "4033",
+      "name": "DUPLICATE_EMAIL",
+      "code": "4032",
       "description": [
         {
           "language": "TH",
@@ -1202,6 +1118,90 @@
         {
           "language": "EN",
           "description": "password invalid on policy similarity rule."
+        }
+      ]
+    },
+        {
+      "name": "REQUIRED_ONLY_ARRAY",
+      "code": "4073",
+      "description": [
+        {
+          "language": "TH",
+          "description": "ต้องเป็น Array เท่านั้น"
+        },
+        {
+          "language": "EN",
+          "description": "Only array is allowed."
+        }
+      ]
+    },
+    {
+      "name": "INVALID_TIME_LOOKUP",
+      "code": "4074",
+      "description": [
+        {
+          "language": "TH",
+          "description": "เวลาไม่ถูกต้อง"
+        },
+        {
+          "language": "EN",
+          "description": "Invalid time."
+        }
+      ]
+    },
+    {
+      "name": "CHARACTER_FIXED_LENGTH",
+      "code": "4075",
+      "description": [
+        {
+          "language": "TH",
+          "description": "จำนวนตัวอักษรต้องไม่เกินที่กำหนด"
+        },
+        {
+          "language": "EN",
+          "description": "Invalid characters."
+        }
+      ]
+    },
+    {
+      "name": "CONFIRM_PIN_NOT_MATCH",
+      "code": "4076",
+      "description": [
+        {
+          "language": "TH",
+          "description": "พิน และยืนยันพิน ไม่ตรงกัน"
+        },
+        {
+          "language": "EN",
+          "description": "PIN does not match."
+        }
+      ]
+    },
+    {
+      "name": "INVALID_CURRENT_PIN",
+      "code": "4077",
+      "description": [
+        {
+          "language": "TH",
+          "description": "รหัสผ่านพินเดิมไม่ถูกต้อง"
+        },
+        {
+          "language": "EN",
+          "description": "Invalid current pin."
+        }
+      ]
+    },
+    {
+      "name": "REQUIRED_ONLY_OBJECT",
+      "code": "4078",
+      "description": [
+        {
+          "language": "TH",
+          "description": "ต้องเป็น Object เท่านั้น"
+        },
+        {
+          "language": "EN",
+          "description": "Only object is allowed."
         }
       ]
     }

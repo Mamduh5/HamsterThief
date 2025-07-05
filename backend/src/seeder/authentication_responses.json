@@ -308,6 +308,20 @@
           "description": "you access is closed."
         }
       ]
+    },
+    {
+      "name": "PLS_LOGIN_FIRST",
+      "code": "9023",
+      "description": [
+        {
+          "language": "TH",
+          "description": "คุณต้องล็อกอินก่อน"
+        },
+        {
+          "language": "EN",
+          "description": "You need to login"
+        }
+      ]
     }
   ]
 }

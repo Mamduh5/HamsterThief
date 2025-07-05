@@ -407,7 +407,6 @@
                 }
             ]
         },
-
         {
             "name": "NEW_PASSWORD_SAME_AS_OLD",
             "code": "1014",
@@ -685,6 +684,20 @@
                 {
                     "language": "EN",
                     "description": "Your email verification link is expired."
+                }
+            ]
+        },
+        {
+            "name": "REGISTER_SUCCESS",
+            "code": "1033",
+            "description": [
+                {
+                    "language": "TH",
+                    "description": "สมัครสำเร็จ"
+                },
+                {
+                    "language": "EN",
+                    "description": "SUCCESSFULLY_REGISTER"
                 }
             ]
         }
