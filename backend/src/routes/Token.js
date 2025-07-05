@@ -63,7 +63,6 @@ Router.get('/extend/cookie',
   tokenAuthentication(),
   setAction(4, 3),
 
-  // setAction('LOGOUT_SUCCESS', 3),
   async ctx => {
     ctx.status = 200
     ctx.body = responseFormat({ FormatingTime: ctx.Time }, 'EXTEND_COOKIE_SUCCESS', ctx.language)
@@ -81,8 +80,5 @@ Router.get('/logout',
     ctx.status = 200
     ctx.body = responseFormat({}, 'LOGOUT_SUCCESS', ctx.language)
   })
-
-
-
 
 module.exports = Router
