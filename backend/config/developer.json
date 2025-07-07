@@ -72,7 +72,7 @@
     "port": "3306",
     "username": "root",
     "password": "",
-    "database": "hamsterThief"
+    "database": "hamsterthief"
   },
   "google": {
     "projectId": "",

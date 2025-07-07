@@ -4,23 +4,24 @@ services:
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
-    container_name: api-overcodeport
+      dockerfile: Dockerfile.developer.txt
+    container_name: api-hamsterthief
+    ports:
+      - "5003:5003"
     expose:
       - "5003"
     networks:
-      - overcode_net
-      - shared_messaging_network
+      - hamsterthief_net
     depends_on:
       - mysql
       - redis
       
   mysql:
     image: mysql:8.0.27
-    container_name: overcodeportmysql
+    container_name: hamsterthiefmysql
     restart: always
     environment: 
-      MYSQL_DATABASE: overcodeport    
+      MYSQL_DATABASE: hamsterthief    
       # MYSQL_USER: root
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
@@ -28,18 +29,18 @@ services:
     ports:
       - "3306:3306"
     networks:
-      - overcode_net
+      - hamsterthief_net
 
   redis:
     image: redis:alpine
-    container_name: overcodeportredis
+    container_name: hamsterthiefredis
     restart: always
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data
     networks:
-      - overcode_net
+      - hamsterthief_net
 
   # frontend:
   #   build:
@@ -48,24 +49,22 @@ services:
   #   container_name: overcodeport
   #   run: npm run build
   #   networks:
-  #     - overcode_net
+  #     - hamsterthief_net
 
-  nginx:
-    build:
-      context: /nginx
-      dockerfile: Dockerfile.nginx
-    ports:
-      - "80:80"
-    depends_on:
-      - backend
-      # - frontend
-    networks:
-      - overcode_net
+  # nginx:
+  #   build:
+  #     context: /nginx
+  #     dockerfile: Dockerfile.nginx
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - backend
+  #     # - frontend
+  #   networks:
+  #     - hamsterthief_net
 volumes:
   mysql_data:
   redis_data:
 networks:
-  overcode_net:
-  shared_messaging_network:
-    external: true
+  hamsterthief_net:
 
