@@ -6,8 +6,8 @@ import { loginUser } from '../services/auth'; // Import the loginUser function f
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    Email: '',
+    Password: ''
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,16 +37,16 @@ const LoginPage = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.email) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
+    if (!formData.Email) {
+      newErrors.Email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.Email)) {
+      newErrors.Email = 'Please enter a valid Email address';
     }
 
-    if (!formData.password) {
-      newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
+    if (!formData.Password) {
+      newErrors.Password = 'Password is required';
+    } else if (formData.Password.length < 4) {
+      newErrors.Password = 'Password must be at least 6 characters';
     }
 
     return newErrors;
@@ -68,11 +68,16 @@ const LoginPage = () => {
 
     try {
       // Call the loginUser function from your API service
-      const data = await loginUser(formData.email, formData.password);
+      const data = await loginUser(formData.Email, formData.Password);
 
+      const resData = data.res_data
+      console.log({resData});
+
+      console.log(resData.Token);
+      
       // Assuming your API returns a token (e.g., JWT) upon successful login
-      if (data && data.token) {
-        localStorage.setItem('authToken', data.token); // Store the token
+      if (resData && resData.Token) {
+        localStorage.setItem('authToken', data.Token); // Store the token
         setMessage('Login successful! Redirecting...');
         // Redirect to the dashboard or a protected route
         navigate('/dashboard'); 
@@ -111,7 +116,7 @@ const LoginPage = () => {
           <div className="space-y-6">
             {/* Email Field */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="Email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address
               </label>
               <div className="relative">
@@ -119,27 +124,27 @@ const LoginPage = () => {
                   <Mail className="h-5 w-5 text-gray-400" />
                 </div>
                 <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
+                  type="Email"
+                  id="Email"
+                  name="Email"
+                  value={formData.Email}
                   onChange={handleChange}
                   className={`w-full pl-10 pr-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
-                    errors.email ? 'border-red-500' : 'border-gray-300'
+                    errors.Email ? 'border-red-500' : 'border-gray-300'
                   }`}
-                  placeholder="Enter your email"
-                  aria-invalid={errors.email ? "true" : "false"}
-                  aria-describedby="email-error"
+                  placeholder="Enter your Email"
+                  aria-invalid={errors.Email ? "true" : "false"}
+                  aria-describedby="Email-error"
                 />
               </div>
-              {errors.email && (
-                <p id="email-error" className="mt-1 text-sm text-red-600">{errors.email}</p>
+              {errors.Email && (
+                <p id="Email-error" className="mt-1 text-sm text-red-600">{errors.Email}</p>
               )}
             </div>
 
             {/* Password Field */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="Password" className="block text-sm font-medium text-gray-700 mb-2">
                 Password
               </label>
               <div className="relative">
@@ -147,29 +152,29 @@ const LoginPage = () => {
                   <Lock className="h-5 w-5 text-gray-400" />
                 </div>
                 <input
-                  type={showPassword ? 'text' : 'password'}
-                  id="password"
-                  name="password"
-                  value={formData.password}
+                  type={showPassword ? 'text' : 'Password'}
+                  id="Password"
+                  name="Password"
+                  value={formData.Password}
                   onChange={handleChange}
                   className={`w-full pl-10 pr-12 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ${
-                    errors.password ? 'border-red-500' : 'border-gray-300'
+                    errors.Password ? 'border-red-500' : 'border-gray-300'
                   }`}
-                  placeholder="Enter your password"
-                  aria-invalid={errors.password ? "true" : "false"}
-                  aria-describedby="password-error"
+                  placeholder="Enter your Password"
+                  aria-invalid={errors.Password ? "true" : "false"}
+                  aria-describedby="Password-error"
                 />
                 <button
                   type="button"
                   onClick={togglePasswordVisibility}
                   className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-colors"
-                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  aria-label={showPassword ? "Hide Password" : "Show Password"}
                 >
                   {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                 </button>
               </div>
-              {errors.password && (
-                <p id="password-error" className="mt-1 text-sm text-red-600">{errors.password}</p>
+              {errors.Password && (
+                <p id="Password-error" className="mt-1 text-sm text-red-600">{errors.Password}</p>
               )}
             </div>
 
@@ -186,7 +191,7 @@ const LoginPage = () => {
                 href="#"
                 className="text-sm text-blue-600 hover:text-blue-800 transition-colors"
               >
-                Forgot password?
+                Forgot Password?
               </a>
             </div>
 

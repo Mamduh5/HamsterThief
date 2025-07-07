@@ -1,53 +1,72 @@
-// src/api/auth.js
+// src/service/auth.js
 
-// This is a placeholder for your actual API endpoint.
-// Replace 'https://your-backend-api.com' with the base URL of your backend.
-const API_BASE_URL = 'localhost:5003/api/v1/user/token/login'; 
+// IMPORTANT: Replace 'http://localhost:5003' with your actual backend URL.
+const API_BASE_URL = 'http://localhost:5003'; 
+
+// These are the FIXED Basic Auth credentials your backend expects for the client.
+// In a real application, these should NOT be hardcoded like this in client-side code.
+// Consider using environment variables (e.g., import.meta.env.VITE_AUTH_USERNAME in Vite)
+// or a backend proxy for production security.
+const AUTH_USERNAME = 'Xr@7Lp#Nz2Qf^MaVi*TcBdYwKe'; // Your fixed AUTHUSERNAME
+const AUTH_Password = 'mZ#7Lt!Yq@Vx2Np^FgRs*Bw9KU&eToChMiD'; // Your fixed AUTHPassword
+const lang = 'th'
+const platform = 'WEB'
 
 /**
- * Handles user login by sending credentials to the backend API.
- * @param {string} email - The user's email address.
- * @param {string} password - The user's password.
+ * Handles user login. This function now sends TWO sets of credentials:
+ * 1. Fixed AUTH_USERNAME/AUTH_Password in the Basic Authorization header (for backend's basicAuth(ctx.req)).
+ * 2. User-provided Email/Password in the JSON request body (for actual user authentication).
+ * * @param {string} Email - The user's Email address entered in the form.
+ * @param {string} Password - The user's Password entered in the form.
  * @returns {Promise<Object>} - A promise that resolves with the API response data (e.g., a token).
- * @throws {Error} - Throws an error if the login fails (e.g., invalid credentials, network error).
+ * @throws {Error} - Throws an error if the login fails.
  */
-export const loginUser = async (email, password) => {
+export const loginUser = async (Email, Password) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/login`, {
+    // 1. Create the string for the FIXED Basic Auth credentials
+    const fixedCredentials = `${AUTH_USERNAME}:${AUTH_Password}`;
+
+    // 2. Base64 encode the fixed credentials string
+    const encodedFixedCredentials = btoa(fixedCredentials);
+
+    const response = await fetch(`${API_BASE_URL}/api/v1/user/token/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'accept-language': lang,
+        'x-platform': platform,
+
+        // 3. Add the Authorization header with the FIXED Basic Auth credentials.
+        // This is what your backend's `basicAuth(ctx.req)` will read.
+        'Authorization': `Basic ${encodedFixedCredentials}` 
       },
-      body: JSON.stringify({ email, password }),
+      // 4. Send the user's actual Email and Password in the request body.
+      // Your backend will likely use these to verify the user against its database.
+      body: JSON.stringify({ Email, Password }), 
     });
 
-    // Check if the response was successful (status code 2xx)
     if (!response.ok) {
       let errorMessage = 'Login failed. Please try again.';
       try {
         const errorData = await response.json();
-        // If the API sends a specific error message, use it
         if (errorData && errorData.message) {
           errorMessage = errorData.message;
         } else if (response.status === 401) {
-          errorMessage = 'Invalid email or password.';
+          // This 401 could be due to invalid fixed basic auth OR invalid user credentials
+          errorMessage = 'Authentication failed. Please check your credentials.';
         } else if (response.status === 404) {
           errorMessage = 'API endpoint not found.';
         }
       } catch (jsonError) {
-        // Fallback if the error response is not JSON
         errorMessage = `Server error: ${response.statusText}`;
       }
       throw new Error(errorMessage);
     }
 
-    // Parse the JSON response from the server
     const data = await response.json();
-    return data; // This should contain your authentication token or user data
+    return data; 
   } catch (error) {
-    // Log the error for debugging purposes
     console.error('API login error:', error);
-    // Re-throw the error to be handled by the calling component
     throw error;
   }
 };
@@ -62,4 +81,4 @@ export const logoutUser = () => {
   console.log('User logged out.');
 };
 
-// You can add other authentication-related API calls here, e.g., register, forgot password, etc.
+// You can add other authentication-related API calls here, e.g., register, forgot Password, etc.
