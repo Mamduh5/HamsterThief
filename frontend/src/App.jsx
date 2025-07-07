@@ -1,54 +1,43 @@
-import React, { useState } from 'react';
-import PlayerCard from './components/PlayerCard';
-import './App.css';
-import Counter from './components/BacisCounter';
+// src/App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
+import DashboardPage from './pages/Dashboard';
+
+// This is a simple PrivateRoute component to protect routes
+const PrivateRoute = ({ children }) => {
+  // Check if an authentication token exists in localStorage
+  const isAuthenticated = localStorage.getItem('authToken');
+  // If authenticated, render the children (the protected component)
+  // Otherwise, redirect to the login page
+  return isAuthenticated ? children : <Navigate to="/login" replace />;
+};
 
 function App() {
-  const [gamePhase, setGamePhase] = useState('lobby');
-
-  const handleStartGame = () => {
-    setGamePhase('in-game');
-  };
-
-  const handleBackToLobby = () => {
-    setGamePhase('lobby');
-  };
-
-  const handleLoginPage = () => {
-    setGamePhase('login-page');
-  };
-
-  // If login page, render ONLY the login page (no App wrapper)
-  if (gamePhase === 'login-page') {
-    return <LoginPage />;
-  }
-
-  // Otherwise, render the normal App layout
   return (
-    <div className="App">
-      <h1>Welcome to Town of Salem!</h1>
-      <p>Go to login page</p>
-      <button onClick={handleLoginPage}>Login Page</button>
-      <p>Current Phase: {gamePhase}</p>
+    // BrowserRouter enables client-side routing
+    <Router>
+      {/* Routes define the different paths in your application */}
+      <Routes>
+        {/* Public route for the login page */}
+        <Route path="/login" element={<LoginPage />} />
 
-      {gamePhase === 'lobby' && (
-        <>
-          <PlayerCard playerName="Mam" status="Online" />
-          <PlayerCard playerName="Toey" status="Online" />
-          <button onClick={handleStartGame}>Start Game</button>
-        </>
-      )}
+        {/* Protected route for the dashboard */}
+        {/* The DashboardPage will only render if PrivateRoute allows it */}
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <DashboardPage />
+            </PrivateRoute>
+          }
+        />
 
-      {gamePhase === 'in-game' && (
-        <>
-          <p>The game has started! Players are now in the night phase.</p>
-          <Counter />
-          <br />
-          <button onClick={handleBackToLobby}>Back to lobby</button>
-        </>
-      )}
-    </div>
+        {/* Redirect any other path to the login page by default */}
+        {/* You can change this to a home page or 404 page as needed */}
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </Router>
   );
 }
 
