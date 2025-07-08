@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Eye, EyeOff, Lock, Mail, LogIn } from 'lucide-react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import { loginUser } from '../services/auth'; // Import the loginUser function from your API service
+import { Button } from '../components/buttons/button';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -80,7 +81,7 @@ const LoginPage = () => {
         localStorage.setItem('authToken', data.Token); // Store the token
         setMessage('Login successful! Redirecting...');
         // Redirect to the dashboard or a protected route
-        navigate('/dashboard'); 
+        navigate('/dashboard');
       } else {
         // Handle cases where login is successful but no token is returned
         throw new Error('Login successful, but no authentication token received.');
@@ -100,9 +101,11 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center p-4 font-inter">
+    <div className="min-h-screen from-blue-50 via-white to-purple-50 flex items-center justify-center p-4 font-inter bg-[url(/test1.png)] bg-auto bg-center bg-no-repeat">
       <div className="w-full max-w-md">
         {/* Logo/Header */}
+          {/* <div className="bg-[url(/test1.png)] bg-auto bg-center bg-no-repeat size-[1024px]"></div> */}
+
         <div className="text-center mb-8">
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
             <Lock className="w-8 h-8 text-white" />
@@ -218,6 +221,7 @@ const LoginPage = () => {
                 </div>
               )}
             </button>
+            <Button/>
           </div>
 
           {/* General Message Display */}

@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/Dashboard';
+import RegisterPage from './pages/Register';
 
 // This is a simple PrivateRoute component to protect routes
 const PrivateRoute = ({ children }) => {
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         {/* Public route for the login page */}
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
 
         {/* Protected route for the dashboard */}
         {/* The DashboardPage will only render if PrivateRoute allows it */}
